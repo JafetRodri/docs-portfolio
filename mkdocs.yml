@@ -1,5 +1,6 @@
 # Understanding the Traffic Light Protocol (TLP)
 
+
 When people share sensitive information — a security advisory, an incident report, an internal finding — the hardest question is often not *what* to say, but *who is allowed to see it*. The Traffic Light Protocol (TLP) answers that question with a simple, shared vocabulary.
 
 This article explains what TLP is, why it exists, and what each label means.
