@@ -1,27 +1,30 @@
 name: Deploy Documentation Portfolio
 
-   on:
-     push:
-       branches:
-         - main
+# This runs automatically every time you save a change to your files on GitHub.
+# It builds your website and publishes it. You never need to run anything yourself.
 
-   permissions:
-     contents: write
+on:
+  push:
+    branches:
+      - main
 
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Get the files
-           uses: actions/checkout@v4
+permissions:
+  contents: write
 
-         - name: Set up Python
-           uses: actions/setup-python@v5
-           with:
-             python-version: 3.x
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the files
+        uses: actions/checkout@v4
 
-         - name: Install the site builder
-           run: pip install mkdocs-material
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
 
-         - name: Build and publish the site
-           run: mkdocs gh-deploy --force
+      - name: Install the site builder
+        run: pip install mkdocs-material
+
+      - name: Build and publish the site
+        run: mkdocs gh-deploy --force
