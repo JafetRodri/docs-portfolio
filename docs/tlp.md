@@ -1,0 +1,58 @@
+# Understanding the Traffic Light Protocol (TLP)
+
+When people share sensitive information — a security advisory, an incident report, an internal finding — the hardest question is often not *what* to say, but *who is allowed to see it*. The Traffic Light Protocol (TLP) answers that question with a simple, shared vocabulary.
+
+This article explains what TLP is, why it exists, and what each label means.
+
+!!! note "About this sample"
+    This is a conceptual explainer — it teaches a standard rather than walking through a task. It demonstrates the ability to make an abstract framework clear to a general professional audience. TLP is an open standard maintained by FIRST (the Forum of Incident Response and Security Teams).
+
+## The problem TLP solves
+
+Imagine an analyst emails a colleague a report that says, at the top, "please keep this confidential." What does that actually mean? Can the colleague forward it to their manager? To a vendor? To the whole department? "Confidential" means different things to different people, and that ambiguity is exactly where sensitive information leaks.
+
+TLP replaces vague instructions with four standard labels. Everyone who uses TLP agrees in advance on what each label permits, so a single word communicates the full sharing boundary.
+
+## The four labels
+
+TLP uses the metaphor of a traffic light, plus a clear option, to signal how widely information may travel.
+
+### :red_circle: TLP:RED — Eyes only
+
+For the named recipients **only**. Information marked TLP:RED may not be shared with anyone else — not the recipient's team, not their manager. It is limited to the specific individuals present in the meeting or named on the message.
+
+*Use when:* disclosure could cause serious harm to the parties involved or to privacy.
+
+### :yellow_circle: TLP:AMBER — Limited internal sharing
+
+May be shared with the recipient's **own organization**, and with clients or customers who need it to act — but no further. A stricter variant, **TLP:AMBER+STRICT**, limits sharing to the organization only, excluding clients.
+
+*Use when:* information needs wider action within a trusted boundary, but broad exposure would create risk.
+
+### :green_circle: TLP:GREEN — Community sharing
+
+May be shared with peers and partners within the broader **community**, but not published openly. TLP:GREEN information should not be posted on the public internet.
+
+*Use when:* the wider community benefits from awareness, but the information isn't meant for the general public.
+
+### :white_circle: TLP:CLEAR — Share freely
+
+No restrictions. Information marked TLP:CLEAR can be shared publicly with anyone.
+
+*Use when:* the information is intended for open distribution.
+
+## A quick comparison
+
+| Label | Who may see it |
+|---|---|
+| **TLP:RED** | Named recipients only |
+| **TLP:AMBER** | Recipient's organization and its clients |
+| **TLP:AMBER+STRICT** | Recipient's organization only |
+| **TLP:GREEN** | The trusted community, not the public |
+| **TLP:CLEAR** | Anyone |
+
+## Why it matters
+
+TLP works because it is **shared and unambiguous**. Its value comes entirely from everyone agreeing on the same definitions ahead of time. A label only protects information if the person receiving it understands the boundary the same way the sender intended — which is why TLP is built into the documentation and information-handling standards of security teams worldwide.
+
+When you mark a document, you are not just adding a color. You are making a precise, enforceable statement about trust.
