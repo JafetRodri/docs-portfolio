@@ -20,12 +20,13 @@ nav:
     - Knowledge Base Architecture: kb-architecture.md
     - Process Flow Diagrams: process-flow.md
     - Migration Case Study: migration-case-study.md
-  - Document Samples:
+  - Document Showcase:
+    - Overview: document-showcase.md
     - Standard Operating Procedure: sop.md
     - Concept Explainer (TLP): tlp.md
-  - Technical Work:
-    - API Reference: api.md
+  - Tools:
     - KB Document Generator: kb-generator.md
+    - API Reference: api.md
     - Quick Start Guide: quickstart.md
 
 markdown_extensions:
