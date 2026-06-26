@@ -1,91 +1,55 @@
-# Standard Operating Procedure: EDR Agent Deployment (Windows)
+# Documentation & Process Governance
 
-| | |
-|---|---|
-| **Document ID** | SAMPLE-SEC-EDR-SOP-001 |
-| **Version** | 1.0 |
-| **Audience** | Endpoint security administrators |
-| **Classification** | Sample / Public |
+I'm **Jafet Rodríguez**, a Documentation & Process Governance professional specializing in knowledge systems architecture, SOP and policy development, and ISO-aligned documentation frameworks.
 
-!!! note "About this sample"
-    This SOP documents deployment of a fictional endpoint detection and response (EDR) agent, "Sentinel EDR," on Windows endpoints. It mirrors the structure of production security procedures while containing no proprietary or client information.
+I design the systems that keep enterprise documentation consistent, discoverable, and governed — leading large-scale documentation migrations, structuring knowledge bases, and standardizing operational processes across technical, engineering, and professional-services environments.
 
-## 1. Purpose
+This portfolio is evidence, not just a collection of files. Because production work is internal and client-confidential, every artifact here is sanitized or built on public subject matter — the **structure, methodology, and information design are representative of my professional work**, with no confidential data exposed.
 
-This procedure describes how to deploy the Sentinel EDR sensor to a Windows 11 endpoint, verify successful installation, and roll back the deployment if validation fails. It ensures every endpoint is onboarded consistently and is reporting to the management console before being considered protected.
+---
 
-## 2. Scope
+## How this portfolio is organized
 
-This procedure applies to all Windows 10 and Windows 11 workstations managed by the endpoint security team. It does not cover server operating systems or macOS endpoints, which are governed by separate procedures.
+<div class="grid cards" markdown>
 
-## 3. Prerequisites
+-   **Capabilities**
 
-Before beginning, confirm the following:
+    ---
 
-- [ ] Administrative rights on the target endpoint
-- [ ] The endpoint meets the minimum OS build (Windows 10 21H2 or later)
-- [ ] Network connectivity to the Sentinel management console on TCP 443
-- [ ] The deployment package (`SentinelInstaller.exe`) and the tenant **Customer ID (CID)**
-- [ ] A maintenance window communicated to the endpoint owner
+    The systems-level work: ISO-aligned governance, knowledge base architecture, process modeling, and migration delivery.
 
-## 4. Procedure
+    [Documentation Governance →](iso-governance.md)
 
-### 4.1 Stage the installer
+-   **Document Samples**
 
-1. Copy `SentinelInstaller.exe` to a local working directory on the endpoint, for example `C:\Temp\Sentinel`.
-2. Confirm the file hash matches the value published in the management console to verify package integrity.
+    ---
 
-### 4.2 Install the sensor
+    Representative procedures, standards, and explainers demonstrating authoring craft and house-style consistency.
 
-1. Open an elevated Command Prompt (**Run as administrator**).
-2. Run the installer with the tenant CID:
+    [Standard Operating Procedure →](sop.md)
 
-    ```bat
-    SentinelInstaller.exe /install /quiet /norestart CID=YOUR_CUSTOMER_ID
-    ```
+-   **Technical Work**
 
-3. Wait for the process to complete. The installer exits silently on success.
+    ---
 
-!!! warning
-    Do not restart the endpoint during installation. A forced restart can leave the sensor in a partially registered state, requiring a full uninstall before reinstalling.
+    API reference documentation and a custom documentation tool I designed and built.
 
-### 4.3 Register with the console
+    [KB Document Generator →](kb-generator.md)
 
-The sensor registers automatically on first network check-in. Allow up to 10 minutes for the endpoint to appear in the management console.
+</div>
 
-## 5. Verification
+---
 
-Confirm a successful deployment using **both** checks:
+## Core competencies
 
-1. **Service check** — On the endpoint, confirm the `SentinelSvc` service is running:
+**Documentation & Governance** — SOP, playbook, and policy development · Knowledge base architecture · Documentation lifecycle management · ISO-aligned documentation practices · Migrations & standardization · Version control & governance
 
-    ```bat
-    sc query SentinelSvc
-    ```
+**Process & Technical** — Business process mapping · Workflow design & optimization · Admin & user guide development · Process flow diagramming · Requirements gathering
 
-    The `STATE` field should read `RUNNING`.
+**Systems & Tools** — Halo · IT Glue · SharePoint · BookStack · Microsoft 365 · Visio / Lucidchart / Mermaid · Git / docs-as-code
 
-2. **Console check** — In the Sentinel management console, confirm the endpoint appears under **Host Management** with a status of **Online** and a recent check-in timestamp.
+**Standards** — ISO 9001:2015 Lead Implementer & Lead Auditor (training completed)
 
-If both checks pass, the endpoint is considered protected. Record the result in the deployment tracker.
+---
 
-## 6. Rollback
-
-If verification fails and cannot be resolved within the maintenance window:
-
-1. Open an elevated Command Prompt.
-2. Uninstall the sensor:
-
-    ```bat
-    SentinelInstaller.exe /uninstall /quiet
-    ```
-
-3. Restart the endpoint.
-4. Confirm the `SentinelSvc` service is no longer present.
-5. Document the failure and escalate to the security engineering team with the installer logs from `C:\Temp\Sentinel`.
-
-## 7. Revision history
-
-| Version | Date | Author | Change |
-|---|---|---|---|
-| 1.0 | 2026-06-24 | J. Rodríguez | Initial release |
+*This site is itself a work sample: authored in Markdown, version-controlled in Git, and published through a continuous deployment pipeline.*
