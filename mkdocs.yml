@@ -1,5 +1,5 @@
-site_name: Jafet Rodríguez — Documentation Portfolio
-site_description: Technical documentation samples, references, and case studies.
+site_name: Jafet Rodríguez — Documentation & Process Governance
+site_description: Documentation governance, knowledge base architecture, and technical writing portfolio.
 
 theme:
   name: material
@@ -15,11 +15,18 @@ theme:
 
 nav:
   - Home: index.md
-  - Standard Operating Procedure: sop.md
-  - API Reference: api.md
-  - Quick Start Guide: quickstart.md
-  - Concept Explainer: tlp.md
-  - Case Study — KB Generator: kb-generator.md
+  - Capabilities:
+    - Documentation Governance: iso-governance.md
+    - Knowledge Base Architecture: kb-architecture.md
+    - Process Flow Diagrams: process-flow.md
+    - Migration Case Study: migration-case-study.md
+  - Document Samples:
+    - Standard Operating Procedure: sop.md
+    - Concept Explainer (TLP): tlp.md
+  - Technical Work:
+    - API Reference: api.md
+    - KB Document Generator: kb-generator.md
+    - Quick Start Guide: quickstart.md
 
 markdown_extensions:
   - admonition
@@ -29,7 +36,11 @@ markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
-  - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - toc:
       permalink: true
