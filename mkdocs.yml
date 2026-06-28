@@ -8,26 +8,18 @@ theme:
       primary: indigo
       accent: cyan
   features:
-    - navigation.sections
     - navigation.top
     - navigation.footer
     - content.code.copy
 
 nav:
   - Home: index.md
-  - Capabilities:
-    - Documentation Governance: iso-governance.md
-    - Knowledge Base Architecture: kb-architecture.md
-    - Process Flow Diagrams: process-flow.md
-    - Migration Case Study: migration-case-study.md
-  - Document Showcase:
-    - Overview: document-showcase.md
-    - Standard Operating Procedure: sop.md
-    - Concept Explainer (TLP): tlp.md
-  - Tools:
-    - KB Document Generator: kb-generator.md
-    - API Reference: api.md
-    - Quick Start Guide: quickstart.md
+  - How I Work: how-i-work.md
+  - Document Showcase: document-showcase.md
+  - Case Study: case-study.md
+
+extra_javascript:
+  - javascripts/resize-embeds.js
 
 markdown_extensions:
   - admonition
