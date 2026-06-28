@@ -1,6 +1,6 @@
 # Case Study: Building a Single Source of Truth
 
-When I joined Alliance Technologies, operational documentation was scattered across four platforms — IT Glue, SharePoint, Halo, and BookStack — with no authoritative source. I led the consolidation of that fragmented content into a single governed knowledge base, run as a formal project, and extended it with a company-wide intranet for shared and departmental resources.
+When I joined an IT managed-services company, operational documentation was scattered across four platforms — IT Glue, SharePoint, Halo, and BookStack — with no authoritative source. I led the consolidation of that fragmented content into a single governed knowledge base, run as a formal project, and extended it with a company-wide intranet for shared and departmental resources.
 
 ## The problem
 
