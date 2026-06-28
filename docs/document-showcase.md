@@ -19,7 +19,7 @@ Each document is built from deliberate components. These aren't decoration; each
 
 - **Quick Answer** — an answer-first summary for the *impatient expert*: the technician who already knows most of it and needs to confirm one thing without reading the whole document.
 - **Before You Begin / Prerequisites** — front-loads the stop conditions, so no one gets halfway through and discovers they lack access or a credential.
-- **TLP classification** — the Traffic Light Protocol (RED / AMBER / GREEN / CLEAR) as a metadata pill, making the sharing boundary unambiguous at a glance.
+- **TLP classification** — the Traffic Light Protocol as a metadata pill, making the sharing boundary unambiguous at a glance. The level isn't decorative; it's chosen from what the document reveals: **RED** (named recipients only), **AMBER** (limited to the organization, need-to-know), **GREEN** (shareable across the community), **CLEAR** (no restrictions). Each sample below notes *why* it carries the level it does — classifying correctly is the skill, not just displaying a label.
 - **Document metadata & Document Control** — ID, version, owner, dates, review frequency: every document is a *controlled asset* with a known history.
 - **Version History** — a verifiable record of what changed, when, and by whom — the backbone of document governance.
 - **ISO / control mappings** — requirements traced to ISO 27001 and NIST CSF controls, turning a document into audit evidence.
@@ -31,6 +31,8 @@ Each document is built from deliberate components. These aren't decoration; each
 
 A governance policy defining approval authority, escalation, exception handling, and closure across client engagements — with a definitions table, roles and decision rights, and a workflow strip. Policies set the *rules*; note how the structure makes each rule and its owner unambiguous.
 
+*Why TLP:AMBER — internal governance content meant for the people who apply it, distributed within the organization on a need-to-know basis, not shared externally.*
+
 <iframe class="doc-embed" src="../showcase/engagement-governance-policy.html" title="Client Engagement Governance Policy" loading="lazy" style="width:100%;border:1px solid #d8e1ec;border-radius:12px;box-shadow:0 2px 14px rgba(20,68,63,0.10);background:#F4F8F7;"></iframe>
 
 <a href="../showcase/engagement-governance-policy.html" target="_blank" rel="noopener">Open full-screen &#8599;</a>
@@ -40,6 +42,8 @@ A governance policy defining approval authority, escalation, exception handling,
 ## Multi-Team SOP
 
 A Standard Operating Procedure coordinating three teams through a sequenced onboarding. Each step carries **Responsible role, Expected Time, and Success Criteria** — because when work crosses team boundaries, every handoff needs an unambiguous owner and a defined completion gate. This is the heavier of the two SOP patterns, and the metadata is what makes a cross-team procedure run without stalling.
+
+*Why TLP:AMBER — references internal security tooling and operational workflow, so distribution is limited to the relevant internal teams.*
 
 <iframe class="doc-embed" src="../showcase/endpoint-onboarding-sop.html" title="Multi-Team SOP — Managed Endpoint Onboarding" loading="lazy" style="width:100%;border:1px solid #d8e1ec;border-radius:12px;box-shadow:0 2px 14px rgba(20,68,63,0.10);background:#F4F8F7;"></iframe>
 
@@ -51,6 +55,8 @@ A Standard Operating Procedure coordinating three teams through a sequenced onbo
 
 The same house style applied to a procedure performed end-to-end by **one role**. Notice what's deliberately *absent*: no per-step ownership metadata, because a single owner makes it unnecessary. Choosing the lighter structure when accountability isn't distributed is part of the craft — more structure is only better when it earns its place. This is the contrast to the multi-team SOP above.
 
+*Why TLP:GREEN — a routine provisioning procedure with no sensitive infrastructure detail, so it can be shared broadly across the organization.*
+
 <iframe class="doc-embed" src="../showcase/workstation-provisioning-sop.html" title="Single-Owner SOP — New Workstation Provisioning" loading="lazy" style="width:100%;border:1px solid #d8e1ec;border-radius:12px;box-shadow:0 2px 14px rgba(20,68,63,0.10);background:#F4F8F7;"></iframe>
 
 <a href="../showcase/workstation-provisioning-sop.html" target="_blank" rel="noopener">Open full-screen &#8599;</a>
@@ -60,6 +66,8 @@ The same house style applied to a procedure performed end-to-end by **one role**
 ## Standard
 
 A technical standard defining mandatory specifications, each requirement carrying an ID, evidence requirement, and a mapping to an ISO 27001 or NIST CSF control — plus a control traceability matrix. This is the most governance-grade document type: it turns "label the equipment" into auditable, traceable requirements.
+
+*Why TLP:AMBER — specifies naming and addressing conventions that reveal environment detail, so distribution is limited to the organization.*
 
 <iframe class="doc-embed" src="../showcase/network-labeling-standard.html" title="Network Equipment Labeling Standard" loading="lazy" style="width:100%;border:1px solid #d8e1ec;border-radius:12px;box-shadow:0 2px 14px rgba(20,68,63,0.10);background:#F4F8F7;"></iframe>
 
