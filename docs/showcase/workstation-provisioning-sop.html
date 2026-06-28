@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Workstation Provisioning | Meridian Managed Services</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-size: 16px; background: #F4F8F7; }
+  .kb-article {
+    --m-primary: #14443F; --m-primary-dark: #0D2E2B; --m-accent: #2F8F84; --m-accent-soft: #E6F2F0;
+    --m-surface: #FFFFFF; --m-surface-alt: #FAFCFB; --m-bg: #F4F8F7; --m-border: #D9E5E2;
+    --m-text: #233330; --m-muted: #62736F; --m-shadow: 0 2px 10px rgba(20,68,63,0.08);
+    --radius-md: 10px; --radius-lg: 14px;
+    font-family: 'Inter','Helvetica Neue',Arial,sans-serif; line-height: 1.65;
+    max-width: 1180px; margin: 0 auto; padding: 24px; color: var(--m-text); background-color: var(--m-bg);
+  }
+  .kb-article * { box-sizing: border-box; }
+  .kb-article img, .kb-article svg { max-width: 100%; height: auto; }
+  .kb-article p, .kb-article li, .kb-article td, .kb-article span, .kb-article div, .kb-article a, .kb-article strong { color: var(--m-text); }
+  .kb-article h1, .kb-article h2, .kb-article h3, .kb-article .kb-step-title { color: var(--m-primary); }
+  .kb-article .kb-shell { background: var(--m-surface); border: 1px solid var(--m-border); border-radius: var(--radius-lg); box-shadow: var(--m-shadow); overflow: hidden; }
+  .kb-article .kb-brandbar { background: linear-gradient(135deg, var(--m-primary), var(--m-primary-dark)); padding: 14px 28px; display: flex; align-items: center; gap: 12px; }
+  .kb-article .kb-brandbar .mark { width: 30px; height: 30px; border-radius: 7px; background: var(--m-accent); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 800; font-size: 15px; }
+  .kb-article .kb-brandbar .brand-name { color: #FFFFFF; font-weight: 700; font-size: 15px; }
+  .kb-article .kb-brandbar .brand-sub { color: #A9CFC9; font-size: 12px; margin-left: auto; }
+  .kb-article .kb-content { padding: 28px 28px 32px 28px; }
+  .kb-article .kb-header { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--m-border); }
+  .kb-article .kb-header h1 { font-size: 29px; line-height: 1.2; margin: 0 0 10px 0; font-weight: 700; }
+  .kb-article .kb-summary { font-size: 16px; margin: 0 0 14px 0; }
+  .kb-article .kb-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--m-muted); align-items: center; }
+  .kb-article .kb-meta span { color: var(--m-muted); }
+  .kb-article .kb-meta .kb-meta-tlp { display: inline-block; padding: 5px 11px; border-radius: 999px; background: #EDF8F1; border: 1px solid #8DC6A3; color: #1D4D12; font-size: 11px; font-weight: 800; }
+  .kb-article .kb-quick-answer { background: var(--m-accent-soft); border: 1px solid #C5E3DE; border-left: 5px solid var(--m-accent); border-radius: var(--radius-md); padding: 16px 18px; margin: 0 0 24px 0; }
+  .kb-article .kb-quick-answer .label { font-size: 13px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--m-primary); }
+  .kb-article .kb-quick-answer p { margin: 0; font-size: 14px; }
+  .kb-article .kb-section { margin-bottom: 28px; }
+  .kb-article .kb-section h2 { font-size: 22px; line-height: 1.25; margin: 0 0 12px 0; font-weight: 700; }
+  .kb-article .kb-section p { margin: 0 0 12px 0; font-size: 14px; }
+  .kb-article .kb-section ul, .kb-article .kb-section ol { margin: 10px 0 0 0; padding-left: 22px; }
+  .kb-article .kb-section li { margin-bottom: 8px; font-size: 14px; }
+  .kb-article .kb-prereq-list { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 16px 18px; }
+  .kb-article .kb-steps { margin-top: 8px; }
+  .kb-article .kb-step { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--m-border); }
+  .kb-article .kb-step:last-child { border-bottom: none; }
+  .kb-article .kb-step-number { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: var(--m-primary); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .kb-article .kb-step-body { flex: 1 1 auto; }
+  .kb-article .kb-step-title { font-size: 16px; font-weight: 700; margin: 0 0 6px 0; }
+  .kb-article .kb-step-body p { margin: 0 0 10px 0; font-size: 14px; }
+  .kb-article .kb-callout { border-radius: var(--radius-md); padding: 14px 16px; border: 1px solid; margin: 12px 0 0 0; }
+  .kb-article .kb-callout strong { display: inline-block; margin-bottom: 4px; font-size: 14px; }
+  .kb-article .kb-callout p { margin: 0; font-size: 14px; }
+  .kb-article .kb-callout.info { background: var(--m-accent-soft); border-color: #C5E3DE; }
+  .kb-article .kb-callout.tip { background: #EDF8F1; border-color: #8DC6A3; }
+  .kb-article .kb-callout.important { background: #FFF8E8; border-color: #E7C96A; }
+  .kb-article .kb-callout.confidential { background: #F5EBCF; border: 1px solid #E0B84F; border-radius: var(--radius-md); padding: 18px 20px; margin-top: 18px; }
+  .kb-article .kb-help { background: var(--m-accent-soft); border: 1px solid var(--m-border); border-left: 5px solid var(--m-primary); border-radius: var(--radius-md); padding: 18px; }
+  .kb-article .kb-help p:last-child, .kb-article .kb-help ul:last-child { margin-bottom: 0; }
+  .kb-article .kb-help ul { margin: 10px 0 0 0; padding-left: 22px; }
+  .kb-article table { width: 100%; border-collapse: collapse; margin-top: 12px; background: #FFFFFF; }
+  .kb-article th { background: var(--m-primary); color: #FFFFFF; text-align: left; padding: 10px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--m-primary); }
+  .kb-article td { padding: 10px 12px; border: 1px solid var(--m-border); font-size: 14px; vertical-align: top; }
+  .kb-article .kb-control-table td:first-child { font-weight: 700; width: 28%; }
+  .kb-article code { font-family: 'Cascadia Code','Consolas',monospace; background: #EBF2F0; color: var(--m-primary-dark); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .kb-article .kb-divider { border: 0; border-top: 1px solid var(--m-border); margin: 26px 0; }
+  .kb-article .kb-footer { text-align: center; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--m-border); font-size: 13px; color: var(--m-muted); }
+  .kb-article .kb-footer p { color: var(--m-muted); margin: 2px 0; }
+  .kb-article .kb-footer-brand { font-weight: 700; color: var(--m-primary); }
+  @media (max-width: 1024px) { .kb-article { padding: 12px; } .kb-article .kb-content { padding: 20px 16px 24px 16px; } .kb-article .kb-header h1 { font-size: 23px; } }
+</style>
+</head>
+<body>
+<div class="kb-article">
+  <div class="kb-shell">
+    <div class="kb-brandbar">
+      <div class="mark">M</div>
+      <div class="brand-name">Meridian Managed Services</div>
+      <div class="brand-sub">Knowledge Base &middot; Service Desk</div>
+    </div>
+    <div class="kb-content">
+      <div class="kb-header">
+        <h1>New Workstation Provisioning</h1>
+        <p class="kb-summary">This SOP describes the standard procedure for the Service Desk to provision and hand over a new Windows workstation to an end user, from imaging through final verification.</p>
+        <div class="kb-meta">
+          <span><strong>Doc ID:</strong> MMS-SD-SOP-021</span>
+          <span><strong>Last updated:</strong> 2026-05-08</span>
+          <span><strong>Est. time:</strong> 30–45 minutes</span>
+          <span class="kb-meta-tlp">TLP:GREEN — Shareable within community</span>
+        </div>
+      </div>
+      <div class="kb-quick-answer">
+        <div class="label">Quick Answer</div>
+        <p>Image the device with the standard build, join it to the domain, confirm the RMM and EDR agents are active, install the standard application set, complete the new-user profile setup, then verify all checks and hand over to the user with the onboarding summary.</p>
+      </div>
+      <div class="kb-section">
+        <h2>Before You Begin</h2>
+        <div class="kb-prereq-list">
+          <ul>
+            <li>An assigned asset tag and the user's account details.</li>
+            <li>Access to the standard imaging build and the application deployment catalog.</li>
+            <li>Network connectivity for domain join and agent enrollment.</li>
+          </ul>
+        </div>
+        <div class="kb-callout important"><strong>Single-Owner Procedure</strong>
+          <p>This procedure is performed end-to-end by one Service Desk technician. Because a single role owns every step, the steps are linear with no per-step handoff metadata — contrast this with a multi-team SOP, where each step carries its own owner.</p>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>Procedure</h2>
+        <div class="kb-steps">
+          <div class="kb-step"><div class="kb-step-number">1</div><div class="kb-step-body"><div class="kb-step-title">Image the workstation</div><p>Apply the current standard Windows build using the imaging tool. Confirm the build version matches the approved baseline before proceeding.</p></div></div>
+          <div class="kb-step"><div class="kb-step-number">2</div><div class="kb-step-body"><div class="kb-step-title">Join the domain</div><p>Join the workstation to the client domain and confirm it appears in the directory under the correct organizational unit.</p></div></div>
+          <div class="kb-step"><div class="kb-step-number">3</div><div class="kb-step-body"><div class="kb-step-title">Confirm management agents</div><p>Verify the RMM and EDR agents are installed, active, and reporting. The device should appear in both consoles before the build is considered managed.</p><div class="kb-callout info"><strong>Info</strong><p>If either agent is missing, deploy it manually and re-check before continuing — an unmanaged endpoint must never be handed to a user.</p></div></div></div>
+          <div class="kb-step"><div class="kb-step-number">4</div><div class="kb-step-body"><div class="kb-step-title">Install the standard application set</div><p>Deploy the standard application catalog for the user's role. Confirm each application launches and is licensed.</p></div></div>
+          <div class="kb-step"><div class="kb-step-number">5</div><div class="kb-step-body"><div class="kb-step-title">Complete user profile setup</div><p>Configure the user's profile, email, and any role-specific access. Confirm first sign-in succeeds and the profile loads correctly.</p></div></div>
+          <div class="kb-step"><div class="kb-step-number">6</div><div class="kb-step-body"><div class="kb-step-title">Verify and hand over</div><p>Run the verification checklist below. Once all checks pass, hand the device to the user with the onboarding summary and record completion in the asset record.</p><div class="kb-callout tip"><strong>Tip</strong><p>Walk the user through first sign-in in person where possible — it resolves most day-one tickets before they're raised.</p></div></div></div>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>Verification Checklist</h2>
+        <table>
+          <thead><tr><th>Check</th><th>Expected Result</th></tr></thead>
+          <tbody>
+            <tr><td>Domain join</td><td>Device visible in directory, correct OU</td></tr>
+            <tr><td>RMM agent</td><td>Active and reporting in console</td></tr>
+            <tr><td>EDR agent</td><td>Active, protected, policy synced</td></tr>
+            <tr><td>Applications</td><td>Standard set installed and licensed</td></tr>
+            <tr><td>User sign-in</td><td>Profile loads, email connected</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>Need Help?</h2>
+        <div class="kb-help"><p>For provisioning issues, contact the Service Desk Lead or refer to the Provisioning workspace in the Meridian knowledge base.</p></div>
+      </div>
+      <div class="kb-section">
+        <h2>Document Control</h2>
+        <table class="kb-control-table"><tbody>
+          <tr><td>Document ID</td><td>MMS-SD-SOP-021</td></tr>
+          <tr><td>Document Type</td><td>SOP (single-owner)</td></tr>
+          <tr><td>Version</td><td>1.1</td></tr>
+          <tr><td>Last Modified</td><td>2026-05-08</td></tr>
+          <tr><td>TLP Classification</td><td>TLP:GREEN</td></tr>
+          <tr><td>Document Owner</td><td>Service Desk</td></tr>
+        </tbody></table>
+      </div>
+      <div class="kb-callout confidential"><strong>Confidentiality Notice</strong><p>This is a fictional sample document created for portfolio demonstration. "Meridian Managed Services" is an invented organization; the content contains no real client, company, or operational information.</p></div>
+      <hr class="kb-divider">
+      <div class="kb-footer">
+        <p><strong>Controlled Document — Verify current version before use</strong></p>
+        <p class="kb-footer-brand">Meridian Managed Services (fictional sample)</p>
+        <p>ISO 9001:2015 Aligned</p>
+        <p>Document ID: MMS-SD-SOP-021 | Version: 1.1</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
