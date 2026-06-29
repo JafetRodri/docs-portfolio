@@ -30,7 +30,8 @@
   .kb-article .kb-summary { font-size: 16px; margin: 0 0 14px 0; }
   .kb-article .kb-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--m-muted); align-items: center; }
   .kb-article .kb-meta span { color: var(--m-muted); }
-  .kb-article .kb-meta .kb-meta-tlp { display: inline-block; padding: 5px 11px; border-radius: 999px; background: #EDF8F1; border: 1px solid #8DC6A3; color: #1D4D12; font-size: 11px; font-weight: 800; }
+  .kb-article .kb-meta .kb-meta-tlp { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px 5px 11px; border-radius: 999px; background: #E7F6EA; border: 1px solid #9FCBA6; color: #2E6B3A; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2px; }
+  .kb-article .kb-meta .kb-meta-tlp::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3C9A4E; flex-shrink: 0; }
   .kb-article .kb-quick-answer { background: var(--m-accent-soft); border: 1px solid #C5E3DE; border-left: 5px solid var(--m-accent); border-radius: var(--radius-md); padding: 16px 18px; margin: 0 0 24px 0; }
   .kb-article .kb-quick-answer .label { font-size: 13px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--m-primary); }
   .kb-article .kb-quick-answer p { margin: 0; font-size: 14px; }
@@ -53,7 +54,8 @@
   .kb-article .kb-callout.info { background: var(--m-accent-soft); border-color: #C5E3DE; }
   .kb-article .kb-callout.tip { background: #EDF8F1; border-color: #8DC6A3; }
   .kb-article .kb-callout.important { background: #FFF8E8; border-color: #E7C96A; }
-  .kb-article .kb-callout.confidential { background: #F5EBCF; border: 1px solid #E0B84F; border-radius: var(--radius-md); padding: 18px 20px; margin-top: 18px; }
+  .kb-article .kb-callout.confidential { border-radius: var(--radius-md); padding: 18px 20px; margin-top: 18px; background: #EAF6EC; border: 1px solid #9CCBA3; border-left: 5px solid #3C9A4E; }
+  .kb-article .kb-callout.confidential strong { color: #2E6B3A; }
   .kb-article .kb-help { background: var(--m-accent-soft); border: 1px solid var(--m-border); border-left: 5px solid var(--m-primary); border-radius: var(--radius-md); padding: 18px; }
   .kb-article .kb-help p:last-child, .kb-article .kb-help ul:last-child { margin-bottom: 0; }
   .kb-article .kb-help ul { margin: 10px 0 0 0; padding-left: 22px; }
@@ -63,7 +65,11 @@
   .kb-article .kb-control-table td:first-child { font-weight: 700; width: 28%; }
   .kb-article code { font-family: 'Cascadia Code','Consolas',monospace; background: #EBF2F0; color: var(--m-primary-dark); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
   .kb-article .kb-divider { border: 0; border-top: 1px solid var(--m-border); margin: 26px 0; }
-  .kb-article .kb-footer { text-align: center; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--m-border); font-size: 13px; color: var(--m-muted); }
+  .kb-article .kb-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--m-border); font-size: 13px; color: var(--m-muted); }
+  .kb-article .kb-footer .kb-footer-tlp { text-align: right; margin-bottom: 10px; }
+  .kb-article .kb-footer .kb-footer-tlp span { display: inline-flex; align-items: center; gap: 6px; background: #E7F6EA; border: 1px solid #9FCBA6; color: #2E6B3A; font-weight: 700; font-size: 11px; padding: 4px 12px; border-radius: 999px; }
+  .kb-article .kb-footer .kb-footer-tlp span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #3C9A4E; }
+  .kb-article .kb-footer .kb-footer-body { text-align: center; }
   .kb-article .kb-footer p { color: var(--m-muted); margin: 2px 0; }
   .kb-article .kb-footer-brand { font-weight: 700; color: var(--m-primary); }
   @media (max-width: 1024px) { .kb-article { padding: 12px; } .kb-article .kb-content { padding: 20px 16px 24px 16px; } .kb-article .kb-header h1 { font-size: 23px; } }
@@ -85,7 +91,7 @@
           <span><strong>Doc ID:</strong> MMS-SD-SOP-021</span>
           <span><strong>Last updated:</strong> 2026-05-08</span>
           <span><strong>Est. time:</strong> 30–45 minutes</span>
-          <span class="kb-meta-tlp">TLP:GREEN — Shareable within community</span>
+          <span class="kb-meta-tlp">TLP:GREEN — Limited disclosure, restricted to the community</span>
         </div>
       </div>
       <div class="kb-quick-answer">
@@ -144,13 +150,16 @@
           <tr><td>Document Owner</td><td>Service Desk</td></tr>
         </tbody></table>
       </div>
-      <div class="kb-callout confidential"><strong>Confidentiality Notice</strong><p>This is a fictional sample document created for portfolio demonstration. "Meridian Managed Services" is an invented organization; the content contains no real client, company, or operational information.</p></div>
+      <div class="kb-callout confidential"><strong>Confidentiality Notice — TLP:GREEN</strong><p>Limited disclosure. Per the Traffic Light Protocol, TLP:GREEN information may be shared with peers and partners within the community, but not through publicly accessible channels. This is a fictional sample created for portfolio demonstration; "Meridian Managed Services" is invented and contains no real client, company, or operational information.</p></div>
       <hr class="kb-divider">
       <div class="kb-footer">
+        <div class="kb-footer-tlp"><span>TLP:GREEN</span></div>
+        <div class="kb-footer-body">
         <p><strong>Controlled Document — Verify current version before use</strong></p>
         <p class="kb-footer-brand">Meridian Managed Services (fictional sample)</p>
         <p>ISO 9001:2015 Aligned</p>
         <p>Document ID: MMS-SD-SOP-021 | Version: 1.1</p>
+        </div>
       </div>
     </div>
   </div>

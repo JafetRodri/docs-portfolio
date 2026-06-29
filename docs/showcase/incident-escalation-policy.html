@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Incident Escalation Policy | Meridian Managed Services</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-size: 16px; background: #F4F8F7; }
+  .kb-article {
+    --m-primary: #14443F; --m-primary-dark: #0D2E2B; --m-accent: #2F8F84; --m-accent-soft: #E6F2F0;
+    --m-surface: #FFFFFF; --m-surface-alt: #FAFCFB; --m-bg: #F4F8F7; --m-border: #D9E5E2;
+    --m-text: #233330; --m-muted: #62736F; --m-shadow: 0 2px 10px rgba(20,68,63,0.08);
+    --radius-md: 10px; --radius-lg: 14px;
+    font-family: 'Inter','Helvetica Neue',Arial,sans-serif; line-height: 1.65;
+    max-width: 1180px; margin: 0 auto; padding: 24px; color: var(--m-text); background-color: var(--m-bg);
+  }
+  .kb-article * { box-sizing: border-box; }
+  .kb-article img, .kb-article svg { max-width: 100%; height: auto; }
+  .kb-article p, .kb-article li, .kb-article td, .kb-article span, .kb-article div, .kb-article a, .kb-article strong { color: var(--m-text); }
+  .kb-article h1, .kb-article h2, .kb-article h3 { color: var(--m-primary); }
+  .kb-article .kb-shell { background: var(--m-surface); border: 1px solid var(--m-border); border-radius: var(--radius-lg); box-shadow: var(--m-shadow); overflow: hidden; }
+  .kb-article .kb-brandbar { background: linear-gradient(135deg, var(--m-primary), var(--m-primary-dark)); padding: 14px 28px; display: flex; align-items: center; gap: 12px; }
+  .kb-article .kb-brandbar .mark { width: 30px; height: 30px; border-radius: 7px; background: var(--m-accent); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 800; font-size: 15px; }
+  .kb-article .kb-brandbar .brand-name { color: #FFFFFF; font-weight: 700; font-size: 15px; }
+  .kb-article .kb-brandbar .brand-sub { color: #A9CFC9; font-size: 12px; margin-left: auto; }
+  .kb-article .kb-content { padding: 28px 28px 32px 28px; }
+  .kb-article .kb-header { margin-bottom: 20px; padding-bottom: 18px; border-bottom: 1px solid var(--m-border); }
+  .kb-article .kb-header h1 { font-size: 29px; line-height: 1.2; margin: 0 0 10px 0; font-weight: 700; }
+  .kb-article .kb-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--m-muted); align-items: center; }
+  .kb-article .kb-meta span { color: var(--m-muted); }
+  .kb-article .kb-meta .kb-meta-tlp { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px 5px 11px; border-radius: 999px; background: #FCE9EA; border: 1px solid #E3A4A8; color: #A12631; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2px; }
+  .kb-article .kb-meta .kb-meta-tlp::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #D4262F; flex-shrink: 0; }
+  .kb-article .kb-restricted { background: #FBEAEA; border: 1px solid #D98080; border-left: 5px solid #C0392B; border-radius: var(--radius-md); padding: 14px 18px; margin: 0 0 24px 0; }
+  .kb-article .kb-restricted strong { color: #9B2C2C; display: block; margin-bottom: 4px; font-size: 13px; letter-spacing: 0.3px; }
+  .kb-article .kb-restricted p { color: var(--m-text); margin: 0; font-size: 13.5px; }
+  .kb-article .kb-toc { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 18px; margin: 0 0 24px 0; }
+  .kb-article .kb-toc h2 { font-size: 17px; margin: 0 0 10px 0; font-weight: 700; }
+  .kb-article .kb-toc ul { margin: 0; padding-left: 20px; }
+  .kb-article .kb-toc li { margin-bottom: 5px; font-size: 14px; }
+  .kb-article .kb-section { margin-bottom: 28px; }
+  .kb-article .kb-section h2 { font-size: 22px; line-height: 1.25; margin: 0 0 12px 0; font-weight: 700; }
+  .kb-article .kb-section h3 { font-size: 17px; margin: 18px 0 8px 0; font-weight: 700; }
+  .kb-article .kb-section p { margin: 0 0 12px 0; font-size: 14px; }
+  .kb-article .kb-section ul, .kb-article .kb-section ol { margin: 10px 0 0 0; padding-left: 22px; }
+  .kb-article .kb-section li { margin-bottom: 8px; font-size: 14px; }
+  .kb-article .kb-policy-block { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 18px; margin-top: 14px; }
+  .kb-article .kb-policy-block h3 { margin-top: 0; }
+  .kb-article .kb-callout { border-radius: var(--radius-md); padding: 14px 16px; border: 1px solid; margin: 12px 0 0 0; }
+  .kb-article .kb-callout strong { display: inline-block; margin-bottom: 4px; font-size: 14px; }
+  .kb-article .kb-callout p { margin: 0; font-size: 14px; }
+  .kb-article .kb-callout.important { background: #FFF8E8; border-color: #E7C96A; }
+  .kb-article .kb-callout.danger { background: #FCE8E8; border-color: #D98080; }
+  .kb-article .kb-callout.confidential { border-radius: var(--radius-md); padding: 18px 20px; margin-top: 18px; background: #FBEAEA; border: 1px solid #D98080; border-left: 5px solid #C0392B; }
+  .kb-article .kb-callout.confidential strong { color: #9B2C2C; }
+  .kb-article .kb-workflow { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; margin-top: 14px; }
+  .kb-article .kb-workflow-step { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 14px; min-height: 120px; }
+  .kb-article .kb-workflow-step .step-no { display: flex; width: 28px; height: 28px; border-radius: 50%; align-items: center; justify-content: center; background: var(--m-primary); color: #FFFFFF; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .kb-article .kb-workflow-step h3 { margin: 0 0 6px 0; font-size: 14px; }
+  .kb-article .kb-workflow-step p { margin: 0; font-size: 12.5px; color: var(--m-muted); }
+  .kb-article table { width: 100%; border-collapse: collapse; margin-top: 12px; background: #FFFFFF; }
+  .kb-article th { background: var(--m-primary); color: #FFFFFF; text-align: left; padding: 10px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--m-primary); }
+  .kb-article td { padding: 10px 12px; border: 1px solid var(--m-border); font-size: 14px; vertical-align: top; }
+  .kb-article .kb-role-table td:first-child, .kb-article .kb-definition-table td:first-child, .kb-article .kb-control-table td:first-child { font-weight: 700; width: 28%; }
+  .kb-article .kb-divider { border: 0; border-top: 1px solid var(--m-border); margin: 26px 0; }
+  .kb-article .kb-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--m-border); font-size: 13px; color: var(--m-muted); }
+  .kb-article .kb-footer .kb-footer-tlp { text-align: right; margin-bottom: 10px; }
+  .kb-article .kb-footer .kb-footer-tlp span { display: inline-flex; align-items: center; gap: 6px; background: #FCE9EA; border: 1px solid #E3A4A8; color: #A12631; font-weight: 700; font-size: 11px; padding: 4px 12px; border-radius: 999px; }
+  .kb-article .kb-footer .kb-footer-tlp span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #D4262F; }
+  .kb-article .kb-footer .kb-footer-body { text-align: center; }
+  .kb-article .kb-footer p { color: var(--m-muted); margin: 2px 0; }
+  .kb-article .kb-footer-brand { font-weight: 700; color: var(--m-primary); }
+  @media (max-width: 1024px) { .kb-article { padding: 12px; } .kb-article .kb-content { padding: 20px 16px 24px 16px; } .kb-article .kb-header h1 { font-size: 23px; } .kb-article .kb-workflow { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="kb-article">
+  <div class="kb-shell">
+    <div class="kb-brandbar">
+      <div class="mark">M</div>
+      <div class="brand-name">Meridian Managed Services</div>
+      <div class="brand-sub">Knowledge Base &middot; Security Operations</div>
+    </div>
+    <div class="kb-content">
+      <div class="kb-header">
+        <h1>Security Incident Escalation Policy</h1>
+        <div class="kb-meta">
+          <span><strong>Doc ID:</strong> MMS-SEC-POL-001</span>
+          <span><strong>Last updated:</strong> 2026-05-09</span>
+          <span><strong>Review:</strong> Quarterly</span>
+          <span class="kb-meta-tlp">TLP:RED — Restricted to specifically authorized individuals only</span>
+        </div>
+      </div>
+      <div class="kb-restricted">
+        <strong>RESTRICTED DISTRIBUTION</strong>
+        <p>This document is classified TLP:RED. It is limited to named members of the Incident Response Team and designated leadership. Do not forward, copy, or share its contents — including the escalation contact tree and response thresholds — with anyone outside that group, internal or external.</p>
+      </div>
+      <div class="kb-toc">
+        <h2>Contents</h2>
+        <ul>
+          <li>Executive Summary</li>
+          <li>1. Purpose and Scope</li>
+          <li>2. Definitions</li>
+          <li>3. Severity Classification</li>
+          <li>4. Escalation Requirements</li>
+          <li>5. Roles and Decision Authority</li>
+          <li>6. Escalation Workflow</li>
+          <li>7. Compliance</li>
+        </ul>
+      </div>
+      <div class="kb-section">
+        <h2>Executive Summary</h2>
+        <p>This policy defines how Meridian detects, classifies, and escalates security incidents — who gets called, how fast, and who has the authority to act. Because it lays out our response capability and contains the on-call escalation tree, it's held at TLP:RED and kept to the people who actually run incident response.</p>
+      </div>
+      <div class="kb-section">
+        <h2>1. Purpose and Scope</h2>
+        <div class="kb-policy-block">
+          <h3>1.1 Purpose</h3>
+          <p>To make sure every security incident follows the same fast, controlled escalation path, so nothing critical sits unattended and the right people are pulled in at the right time.</p>
+        </div>
+        <div class="kb-policy-block">
+          <h3>1.2 Scope</h3>
+          <p>Applies to all confirmed and suspected security incidents affecting Meridian-managed environments, and to every member of the Incident Response Team, Security Operations, and leadership in the escalation chain.</p>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>2. Definitions</h2>
+        <table class="kb-definition-table">
+          <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+          <tbody>
+            <tr><td>Security Incident</td><td>Any confirmed or suspected event that threatens the confidentiality, integrity, or availability of a managed system.</td></tr>
+            <tr><td>Escalation</td><td>Raising an incident to a higher authority when its severity or impact exceeds the current responder's mandate.</td></tr>
+            <tr><td>Containment Authority</td><td>The role permitted to approve disruptive containment actions, such as isolating a host or disabling an account.</td></tr>
+            <tr><td>On-Call Tree</td><td>The ordered list of named responders and their backups for each severity level.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>3. Severity Classification</h2>
+        <p>Every incident gets a severity rating at triage. The rating drives how fast it escalates and how far up the chain it goes.</p>
+        <table>
+          <thead><tr><th>Severity</th><th>Definition</th><th>Initial Response</th></tr></thead>
+          <tbody>
+            <tr><td>SEV-1 Critical</td><td>Active breach, ransomware, or outage affecting a client's core systems.</td><td>Immediate, within 15 minutes</td></tr>
+            <tr><td>SEV-2 High</td><td>Confirmed threat with contained impact, or a credible imminent risk.</td><td>Within 30 minutes</td></tr>
+            <tr><td>SEV-3 Moderate</td><td>Suspicious activity needing investigation, no confirmed impact yet.</td><td>Within 2 hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>4. Escalation Requirements</h2>
+        <div class="kb-callout important"><strong>Core Rule</strong><p>No SEV-1 or SEV-2 incident is ever handled by a single responder alone. Escalation is mandatory and must be acknowledged, not just sent.</p></div>
+        <div class="kb-policy-block">
+          <h3>4.1 Triggering Escalation</h3>
+          <ol>
+            <li>Escalate the moment an incident is rated SEV-1 or SEV-2, or whenever a SEV-3 shows signs of spreading.</li>
+            <li>Escalate by the on-call tree in order; if the primary doesn't acknowledge within the response window, move to the backup automatically.</li>
+            <li>Every escalation is logged with the time, who was contacted, and the action taken.</li>
+          </ol>
+        </div>
+        <div class="kb-policy-block">
+          <h3>4.2 Containment Authority</h3>
+          <p>Disruptive containment — isolating a host, disabling an account, cutting a connection — needs sign-off from the designated Containment Authority for that severity. For SEV-1, the IR Lead can authorize containment immediately and brief leadership right after.</p>
+          <div class="kb-callout danger"><strong>Do Not Wait</strong><p>If an active breach is spreading and the Containment Authority can't be reached, the senior responder on shift contains first and documents the decision. Stopping the bleed comes before the paperwork.</p></div>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>5. Roles and Decision Authority</h2>
+        <table class="kb-role-table">
+          <thead><tr><th>Role</th><th>Responsibility</th><th>Authority</th></tr></thead>
+          <tbody>
+            <tr><td>First Responder</td><td>Triages, rates severity, starts the log, escalates.</td><td>Acts on SEV-3 within playbook.</td></tr>
+            <tr><td>IR Lead</td><td>Owns the incident, coordinates response, approves containment.</td><td>Containment authority for SEV-1 and SEV-2.</td></tr>
+            <tr><td>Security Leadership</td><td>Engaged on SEV-1; owns external and client communication decisions.</td><td>Final authority on breach notification.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>6. Escalation Workflow</h2>
+        <div class="kb-workflow">
+          <div class="kb-workflow-step"><div class="step-no">1</div><h3>Detect</h3><p>Alert or report comes in and is logged.</p></div>
+          <div class="kb-workflow-step"><div class="step-no">2</div><h3>Triage</h3><p>First Responder rates severity.</p></div>
+          <div class="kb-workflow-step"><div class="step-no">3</div><h3>Escalate</h3><p>On-call tree engaged per severity.</p></div>
+          <div class="kb-workflow-step"><div class="step-no">4</div><h3>Contain</h3><p>Authorized action stops the impact.</p></div>
+          <div class="kb-workflow-step"><div class="step-no">5</div><h3>Close</h3><p>Resolve, notify if required, review.</p></div>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>7. Compliance</h2>
+        <p>Escalation timing and decisions are reviewed after every SEV-1 and SEV-2. A missed escalation window or an unlogged containment decision is treated as a control failure and goes into the post-incident review with a corrective action.</p>
+      </div>
+      <div class="kb-section">
+        <h2>Document Control</h2>
+        <table class="kb-control-table"><tbody>
+          <tr><td>Document ID</td><td>MMS-SEC-POL-001</td></tr>
+          <tr><td>Document Type</td><td>Policy</td></tr>
+          <tr><td>Version</td><td>2.0</td></tr>
+          <tr><td>Last Modified</td><td>2026-05-09</td></tr>
+          <tr><td>TLP Classification</td><td>TLP:RED</td></tr>
+          <tr><td>Document Owner</td><td>Security Operations</td></tr>
+          <tr><td>Review Frequency</td><td>Quarterly</td></tr>
+        </tbody></table>
+      </div>
+      <div class="kb-callout confidential"><strong>Confidentiality Notice — TLP:RED</strong><p>Restricted to named recipients only. Per the Traffic Light Protocol, TLP:RED information must not be shared with any party outside the specific individuals to whom it was directly provided. This is a fictional sample created for portfolio demonstration; "Meridian Managed Services" is invented and contains no real client, company, or operational information.</p></div>
+      <hr class="kb-divider">
+      <div class="kb-footer">
+        <div class="kb-footer-tlp"><span>TLP:RED</span></div>
+        <div class="kb-footer-body">
+          <p><strong>Controlled Document — Restricted Distribution</strong></p>
+          <p class="kb-footer-brand">Meridian Managed Services (fictional sample)</p>
+          <p>ISO/IEC 27001:2022 Aligned</p>
+          <p>Document ID: MMS-SEC-POL-001 | Version: 2.0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
