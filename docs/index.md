@@ -1,6 +1,8 @@
 # Documentation & Process Governance
 
-I'm **Jafet Rodríguez** — I design the systems that keep enterprise documentation consistent, discoverable, and governed: knowledge base architecture, SOP and policy development, and ISO-aligned documentation frameworks.
+**I turn scattered, ungoverned documentation into a single source of truth.**
+
+I'm **Jafet Rodríguez** — I design the knowledge base architecture, SOPs, policies, and ISO-aligned frameworks that keep enterprise documentation consistent, discoverable, and trusted.
 
 This portfolio is a companion to my resume. Rather than restate my experience, it shows the **proof** — real, client-grade documents and the methods behind them.
 
@@ -12,7 +14,7 @@ This portfolio is a companion to my resume. Rather than restate my experience, i
 
     ---
 
-    Fully styled, client-grade documents — SOPs and more — rendered inline as a gallery.
+    Fully styled, client-grade documents — policy, SOPs, and a standard — rendered inline as a gallery.
 
     [Document Showcase →](document-showcase.md)
 
