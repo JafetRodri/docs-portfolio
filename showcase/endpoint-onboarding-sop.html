@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Managed Endpoint Onboarding — New Client Site | Meridian Managed Services</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-size: 16px; background: #F4F8F7; }
+  .kb-article {
+    --m-primary: #14443F; --m-primary-dark: #0D2E2B; --m-accent: #2F8F84; --m-accent-soft: #E6F2F0;
+    --m-surface: #FFFFFF; --m-surface-alt: #FAFCFB; --m-bg: #F4F8F7; --m-border: #D9E5E2;
+    --m-text: #233330; --m-muted: #62736F; --m-shadow: 0 2px 10px rgba(20,68,63,0.08);
+    --radius-md: 10px; --radius-lg: 14px;
+    font-family: 'Inter','Helvetica Neue',Arial,sans-serif; line-height: 1.65;
+    max-width: 1180px; margin: 0 auto; padding: 24px; color: var(--m-text); background-color: var(--m-bg);
+  }
+  .kb-article * { box-sizing: border-box; }
+  .kb-article img, .kb-article svg { max-width: 100%; height: auto; }
+  .kb-article p, .kb-article li, .kb-article td, .kb-article span,
+  .kb-article div, .kb-article a, .kb-article strong { color: var(--m-text); }
+  .kb-article h1, .kb-article h2, .kb-article h3, .kb-article h4,
+  .kb-article .kb-step-title, .kb-article .kb-section-title { color: var(--m-primary); }
+  .kb-article .kb-shell { background: var(--m-surface); border: 1px solid var(--m-border); border-radius: var(--radius-lg); box-shadow: var(--m-shadow); overflow: hidden; }
+  .kb-article .kb-brandbar { background: linear-gradient(135deg, var(--m-primary), var(--m-primary-dark)); padding: 14px 28px; display: flex; align-items: center; gap: 12px; }
+  .kb-article .kb-brandbar .mark { width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0; background: var(--m-accent); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-weight: 800; font-size: 15px; }
+  .kb-article .kb-brandbar .brand-name { color: #FFFFFF; font-weight: 700; font-size: 15px; letter-spacing: 0.3px; }
+  .kb-article .kb-brandbar .brand-sub { color: #A9CFC9; font-size: 12px; margin-left: auto; }
+  .kb-article .kb-content { padding: 28px 28px 32px 28px; }
+  .kb-article .kb-header { margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--m-border); }
+  .kb-article .kb-header h1 { font-size: 29px; line-height: 1.2; margin: 0 0 10px 0; font-weight: 700; }
+  .kb-article .kb-summary { font-size: 16px; margin: 0 0 14px 0; }
+  .kb-article .kb-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; font-size: 13px; color: var(--m-muted); align-items: center; }
+  .kb-article .kb-meta span { color: var(--m-muted); }
+  .kb-article .kb-meta .kb-meta-tlp { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px 5px 11px; border-radius: 999px; background: #FFF4DE; border: 1px solid #E8C572; color: #8A5B00; font-size: 11.5px; font-weight: 700; letter-spacing: 0.2px; }
+  .kb-article .kb-meta .kb-meta-tlp::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #E0A210; flex-shrink: 0; }
+  .kb-article .kb-quick-answer { background: var(--m-accent-soft); border: 1px solid #C5E3DE; border-left: 5px solid var(--m-accent); border-radius: var(--radius-md); padding: 16px 18px; margin: 0 0 24px 0; }
+  .kb-article .kb-quick-answer .label { font-size: 13px; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.3px; color: var(--m-primary); }
+  .kb-article .kb-quick-answer p { margin: 0; font-size: 14px; }
+  .kb-article .kb-section { margin-bottom: 28px; }
+  .kb-article .kb-section h2 { font-size: 22px; line-height: 1.25; margin: 0 0 12px 0; font-weight: 700; }
+  .kb-article .kb-section p { margin: 0 0 12px 0; font-size: 14px; }
+  .kb-article .kb-section ul, .kb-article .kb-section ol { margin: 10px 0 0 0; padding-left: 22px; }
+  .kb-article .kb-section li { margin-bottom: 8px; font-size: 14px; }
+  .kb-article .kb-prereq-list { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 16px 18px; }
+  .kb-article .kb-workflow { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; margin-top: 14px; }
+  .kb-article .kb-workflow-step { background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 14px; min-height: 132px; }
+  .kb-article .kb-workflow-step .step-no { display: flex; width: 28px; height: 28px; border-radius: 50%; align-items: center; justify-content: center; background: var(--m-primary); color: #FFFFFF; font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .kb-article .kb-workflow-step h3 { margin: 0 0 6px 0; font-size: 14px; }
+  .kb-article .kb-workflow-step p { margin: 0; font-size: 12.5px; color: var(--m-muted); }
+  .kb-article .kb-workflow-step .owner { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; color: var(--m-accent); text-transform: uppercase; letter-spacing: 0.3px; }
+  .kb-article .kb-steps { margin-top: 8px; }
+  .kb-article .kb-step { display: flex; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--m-border); }
+  .kb-article .kb-step:last-child { border-bottom: none; }
+  .kb-article .kb-step-number { flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; background: var(--m-primary); color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; margin-top: 2px; }
+  .kb-article .kb-step-body { flex: 1 1 auto; }
+  .kb-article .kb-step-title { font-size: 16px; font-weight: 700; margin: 0 0 6px 0; }
+  .kb-article .kb-step-body p { margin: 0 0 10px 0; font-size: 14px; }
+  .kb-article .kb-step-meta { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; background: var(--m-surface-alt); border: 1px solid var(--m-border); border-radius: var(--radius-md); padding: 12px 14px; }
+  .kb-article .kb-step-meta .cell .k { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--m-muted); margin-bottom: 3px; }
+  .kb-article .kb-step-meta .cell .v { font-size: 13px; color: var(--m-text); }
+  .kb-article .kb-callout { border-radius: var(--radius-md); padding: 14px 16px; border: 1px solid; margin: 12px 0 0 0; }
+  .kb-article .kb-callout strong { display: inline-block; margin-bottom: 4px; font-size: 14px; }
+  .kb-article .kb-callout p { margin: 0; font-size: 14px; }
+  .kb-article .kb-callout.info { background: var(--m-accent-soft); border-color: #C5E3DE; }
+  .kb-article .kb-callout.tip { background: #EDF8F1; border-color: #8DC6A3; }
+  .kb-article .kb-callout.important { background: #FFF8E8; border-color: #E7C96A; }
+  .kb-article .kb-callout.warning { background: #FFF4D6; border-color: #E5BE5C; }
+  .kb-article .kb-callout.confidential { border-radius: var(--radius-md); padding: 18px 20px; margin-top: 18px; background: #FCF3E0; border: 1px solid #E8C27A; border-left: 5px solid #C99A2E; }
+  .kb-article .kb-callout.confidential strong { color: #8A6D1B; }
+  .kb-article .kb-help { background: var(--m-accent-soft); border: 1px solid var(--m-border); border-left: 5px solid var(--m-primary); border-radius: var(--radius-md); padding: 18px; }
+  .kb-article .kb-help p:last-child, .kb-article .kb-help ul:last-child { margin-bottom: 0; }
+  .kb-article .kb-help ul { margin: 10px 0 0 0; padding-left: 22px; }
+  .kb-article table { width: 100%; border-collapse: collapse; margin-top: 12px; background: #FFFFFF; }
+  .kb-article th { background: var(--m-primary); color: #FFFFFF; text-align: left; padding: 10px 12px; font-size: 13px; font-weight: 700; border: 1px solid var(--m-primary); }
+  .kb-article td { padding: 10px 12px; border: 1px solid var(--m-border); font-size: 14px; vertical-align: top; }
+  .kb-article .kb-control-table td:first-child { font-weight: 700; width: 28%; }
+  .kb-article a { color: var(--m-primary); text-decoration: underline; }
+  .kb-article a:hover { color: var(--m-primary-dark); }
+  .kb-article code { font-family: 'Cascadia Code','Consolas',monospace; background: #EBF2F0; color: var(--m-primary-dark); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+  .kb-article .kb-divider { border: 0; border-top: 1px solid var(--m-border); margin: 26px 0; }
+  .kb-article .kb-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--m-border); font-size: 13px; color: var(--m-muted); }
+  .kb-article .kb-footer .kb-footer-tlp { text-align: right; margin-bottom: 10px; }
+  .kb-article .kb-footer .kb-footer-tlp span { display: inline-flex; align-items: center; gap: 6px; background: #FFF4DE; border: 1px solid #E8C572; color: #8A5B00; font-weight: 700; font-size: 11px; padding: 4px 12px; border-radius: 999px; }
+  .kb-article .kb-footer .kb-footer-tlp span::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #E0A210; }
+  .kb-article .kb-footer .kb-footer-body { text-align: center; }
+  .kb-article .kb-footer p { color: var(--m-muted); margin: 2px 0; }
+  .kb-article .kb-footer-brand { font-weight: 700; color: var(--m-primary); }
+  @media (max-width: 1024px) {
+    .kb-article { padding: 12px; }
+    .kb-article .kb-content { padding: 20px 16px 24px 16px; }
+    .kb-article .kb-header h1 { font-size: 23px; }
+    .kb-article .kb-workflow { grid-template-columns: 1fr; }
+    .kb-article .kb-step-meta { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="kb-article">
+  <div class="kb-shell">
+    <div class="kb-brandbar">
+      <div class="mark">M</div>
+      <div class="brand-name">Meridian Managed Services</div>
+      <div class="brand-sub">Knowledge Base &middot; Operations</div>
+    </div>
+    <div class="kb-content">
+      <div class="kb-header">
+        <h1>Managed Endpoint Onboarding — New Client Site</h1>
+        <p class="kb-summary">This SOP defines the cross-team procedure for onboarding a new client site into Meridian's managed endpoint service, covering provisioning, security baseline application, validation, and formal handoff to managed operations.</p>
+        <div class="kb-meta">
+          <span><strong>Doc ID:</strong> MMS-OPS-SOP-014</span>
+          <span><strong>Last updated:</strong> 2026-05-12</span>
+          <span><strong>Est. time:</strong> 60–90 minutes per site</span>
+          <span class="kb-meta-tlp">TLP:AMBER — Limited disclosure, restricted to participants' organizations</span>
+        </div>
+      </div>
+      <div class="kb-quick-answer">
+        <div class="label">Quick Answer</div>
+        <p>Provisioning deploys the RMM agent via GPO and confirms check-in; Security Operations applies the EDR baseline and confirms a clean policy sync; the Service Desk runs validation on sample endpoints; and the Onboarding PM records formal handoff once all quality gates pass. Each phase has a named owner and an explicit success criterion — do not advance a phase until its criterion is met.</p>
+      </div>
+      <div class="kb-section">
+        <h2>Before You Begin</h2>
+        <div class="kb-prereq-list">
+          <ul>
+            <li>Signed onboarding package and confirmed device inventory from the Onboarding PM.</li>
+            <li>Administrative access to the client's RMM site and EDR console.</li>
+            <li>Domain administrator credentials for the target environment (provided through the secured credential vault).</li>
+            <li>Confirmation of the client's maintenance window and primary technical contact.</li>
+          </ul>
+        </div>
+        <div class="kb-callout important"><strong>Multi-Team Procedure</strong>
+          <p>This onboarding crosses three teams. Each step names the responsible role. A step is not complete until its <strong>Success Criteria</strong> is met and recorded in the onboarding project record — the next team relies on it.</p>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>Teams and Responsibilities</h2>
+        <table>
+          <thead><tr><th>Team / Role</th><th>Responsibility</th></tr></thead>
+          <tbody>
+            <tr><td>Provisioning Engineer</td><td>Deploys the RMM agent, confirms enrollment and check-in.</td></tr>
+            <tr><td>Security Analyst (SecOps)</td><td>Applies the EDR security baseline and verifies policy sync.</td></tr>
+            <tr><td>Service Desk Technician</td><td>Runs endpoint validation and confirms monitoring visibility.</td></tr>
+            <tr><td>Onboarding Project Manager</td><td>Owns quality gates and records the formal handoff to operations.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>Onboarding Workflow</h2>
+        <div class="kb-workflow">
+          <div class="kb-workflow-step"><div class="step-no">1</div><h3>Intake &amp; Readiness</h3><p>Confirm inventory, access, and maintenance window.</p><span class="owner">Provisioning</span></div>
+          <div class="kb-workflow-step"><div class="step-no">2</div><h3>Agent Deployment</h3><p>Deploy RMM agent by GPO and confirm check-in.</p><span class="owner">Provisioning</span></div>
+          <div class="kb-workflow-step"><div class="step-no">3</div><h3>Security Baseline</h3><p>Apply EDR policy and verify a clean sync.</p><span class="owner">SecOps</span></div>
+          <div class="kb-workflow-step"><div class="step-no">4</div><h3>Validation</h3><p>Check sample endpoints and monitoring visibility.</p><span class="owner">Service Desk</span></div>
+          <div class="kb-workflow-step"><div class="step-no">5</div><h3>Formal Handoff</h3><p>Pass quality gates and record handoff.</p><span class="owner">Onboarding PM</span></div>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>Detailed Steps</h2>
+        <div class="kb-steps">
+          <div class="kb-step"><div class="kb-step-number">1</div><div class="kb-step-body">
+            <div class="kb-step-title">Confirm onboarding readiness</div>
+            <p>Validate the device inventory against the signed onboarding package. Confirm RMM and EDR console access, retrieve domain credentials from the credential vault, and verify the agreed maintenance window with the client's technical contact.</p>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Provisioning Engineer</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">10–15 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">Inventory, access, and window all confirmed and recorded.</div></div></div>
+          </div></div>
+          <div class="kb-step"><div class="kb-step-number">2</div><div class="kb-step-body">
+            <div class="kb-step-title">Deploy the RMM agent by GPO</div>
+            <p>From the RMM console, execute the agent deployment job against the domain controller, scoped to the organizational units containing in-scope devices. Set the deployment mode to <code>INSTALL</code> and monitor the job to completion. Allow 5–10 minutes for Group Policy to propagate.</p>
+            <div class="kb-callout warning"><strong>Sequencing</strong><p>Do not begin the security baseline (Step 4) until agents have checked in. SecOps policy targeting relies on devices being visible in the RMM platform first.</p></div>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Provisioning Engineer</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">15–20 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">Deployment job completes successfully on the domain controller.</div></div></div>
+          </div></div>
+          <div class="kb-step"><div class="kb-step-number">3</div><div class="kb-step-body">
+            <div class="kb-step-title">Confirm agent check-in</div>
+            <p>In the RMM site, verify that enrolled devices appear and report an <strong>Online</strong> status with a recent check-in timestamp. Confirm the device count aligns with the expected inventory before handing off to Security Operations.</p>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Provisioning Engineer</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">10 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">Device count matches inventory; sampled devices show Online.</div></div></div>
+          </div></div>
+          <div class="kb-step"><div class="kb-step-number">4</div><div class="kb-step-body">
+            <div class="kb-step-title">Apply the EDR security baseline</div>
+            <p>In the EDR console, assign the client to the standard managed security policy group. Confirm the baseline policy (real-time protection, tamper protection, and managed response) applies and that each endpoint reports a successful policy sync.</p>
+            <div class="kb-callout info"><strong>Handoff In</strong><p>This step begins only after Provisioning confirms agent check-in (Step 3). Verify the device list in the EDR console matches the RMM device count before applying policy.</p></div>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Security Analyst (SecOps)</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">15–20 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">All endpoints report a successful baseline policy sync.</div></div></div>
+          </div></div>
+          <div class="kb-step"><div class="kb-step-number">5</div><div class="kb-step-body">
+            <div class="kb-step-title">Run endpoint validation</div>
+            <p>On at least three sample endpoints, confirm the RMM agent service is running, the EDR agent is active and protected, and the device is visible in the monitoring dashboard with alerting enabled. Record results in the onboarding project record.</p>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Service Desk Technician</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">15 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">Sample endpoints pass all three checks; monitoring is live.</div></div></div>
+          </div></div>
+          <div class="kb-step"><div class="kb-step-number">6</div><div class="kb-step-body">
+            <div class="kb-step-title">Record formal handoff to operations</div>
+            <p>Confirm every phase's success criteria is met and recorded. Mark the onboarding quality gate as passed, transition the client to managed operations status, and capture any exceptions or follow-up items for the operations team.</p>
+            <div class="kb-callout tip"><strong>Closure</strong><p>If any quality gate is incomplete, the onboarding remains open and the responsible team is assigned the corrective action. Operations status is granted only on a clean gate.</p></div>
+            <div class="kb-step-meta"><div class="cell"><div class="k">Responsible</div><div class="v">Onboarding Project Manager</div></div><div class="cell"><div class="k">Expected Time</div><div class="v">10 minutes</div></div><div class="cell"><div class="k">Success Criteria</div><div class="v">All gates passed; client transitioned to managed operations.</div></div></div>
+          </div></div>
+        </div>
+      </div>
+      <div class="kb-section">
+        <h2>Troubleshooting</h2>
+        <table>
+          <thead><tr><th>Issue</th><th>Resolution</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td>Agents do not check in after deployment</td><td>Confirm the deployment job completed on the domain controller, verify GPO propagation, and check endpoint connectivity to the RMM platform.</td><td>Provisioning Engineer</td></tr>
+            <tr><td>EDR policy fails to sync on some endpoints</td><td>Confirm the device appears in the EDR console, verify it is assigned to the correct policy group, and force a manual policy refresh.</td><td>Security Analyst</td></tr>
+            <tr><td>Device count mismatch between RMM and EDR</td><td>Reconcile against the signed inventory; identify devices missing from either platform before proceeding to validation.</td><td>Provisioning &amp; SecOps</td></tr>
+            <tr><td>Endpoint not visible in monitoring</td><td>Verify agent services are running, confirm alerting is enabled for the site, and re-check dashboard scoping.</td><td>Service Desk Technician</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="kb-section">
+        <h2>Need Help?</h2>
+        <div class="kb-help"><p>If you need further assistance, contact the Operations Leadership team or refer to the Onboarding workspace in the Meridian knowledge base.</p><ul><li>Use the internal escalation path for RMM access, EDR policy, or onboarding quality-gate questions.</li></ul></div>
+      </div>
+      <div class="kb-section">
+        <h2>Document Control</h2>
+        <table class="kb-control-table"><tbody>
+          <tr><td>Document ID</td><td>MMS-OPS-SOP-014</td></tr>
+          <tr><td>Document Type</td><td>SOP (multi-team)</td></tr>
+          <tr><td>Version</td><td>1.2</td></tr>
+          <tr><td>Last Modified</td><td>2026-05-12</td></tr>
+          <tr><td>TLP Classification</td><td>TLP:AMBER</td></tr>
+          <tr><td>Document Owner</td><td>Operations Department</td></tr>
+          <tr><td>Review Frequency</td><td>Annual or on workflow change</td></tr>
+        </tbody></table>
+      </div>
+      <div class="kb-section">
+        <h2>Version History</h2>
+        <table><thead><tr><th>Version</th><th>Date</th><th>Author</th><th>Summary of Changes</th></tr></thead><tbody>
+          <tr><td>1.2</td><td>2026-05-12</td><td>Documentation Team</td><td>Added per-step ownership metadata and clarified cross-team sequencing.</td></tr>
+          <tr><td>1.1</td><td>2026-04-02</td><td>Documentation Team</td><td>Added validation quality gate and troubleshooting matrix.</td></tr>
+          <tr><td>1.0</td><td>2026-03-10</td><td>Documentation Team</td><td>Initial multi-team onboarding SOP.</td></tr>
+        </tbody></table>
+      </div>
+      <div class="kb-section">
+        <h2>ISO/IEC 27001:2022 Control Mappings</h2>
+        <table class="kb-control-table"><thead><tr><th>Control ID</th><th>Control Title</th></tr></thead><tbody>
+          <tr><td>A.5.9</td><td>Inventory of information and other associated assets</td></tr>
+          <tr><td>A.5.15</td><td>Access control</td></tr>
+          <tr><td>A.8.1</td><td>User endpoint devices</td></tr>
+          <tr><td>A.8.7</td><td>Protection against malware</td></tr>
+        </tbody></table>
+      </div>
+      <div class="kb-callout confidential"><strong>Confidentiality Notice — TLP:AMBER</strong><p>Limited disclosure. Per the Traffic Light Protocol, TLP:AMBER information may be shared only within the organization and with clients on a need-to-know basis, not externally. This is a fictional sample created for portfolio demonstration; "Meridian Managed Services" is invented and contains no real client, company, or operational information.</p></div>
+      <hr class="kb-divider">
+      <div class="kb-footer">
+        <div class="kb-footer-tlp"><span>TLP:AMBER</span></div>
+        <div class="kb-footer-body">
+        <p><strong>Controlled Document — Verify current version before use</strong></p>
+        <p class="kb-footer-brand">Meridian Managed Services (fictional sample)</p>
+        <p>ISO 9001:2015 &amp; ISO/IEC 27001:2022 Aligned</p>
+        <p>Document ID: MMS-OPS-SOP-014 | Version: 1.2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
