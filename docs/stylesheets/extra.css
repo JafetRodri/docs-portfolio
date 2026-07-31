@@ -26,3 +26,11 @@
 @media screen and (max-width: 520px) {
   .hero { justify-content: center; text-align: center; }
 }
+
+/* Hero action buttons */
+.hero-buttons { margin-top: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.hero-buttons .md-button { margin: 0; display: inline-flex; align-items: center; }
+.hero-buttons .md-button svg { height: 1.1em; vertical-align: middle; }
+@media screen and (max-width: 520px) {
+  .hero-buttons { justify-content: center; }
+}
