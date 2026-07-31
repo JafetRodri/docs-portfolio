@@ -1,8 +1,15 @@
 # Documentation & Process Governance
 
-I'm **Jafet Rodríguez** — I design the knowledge base architecture, SOPs, policies, and ISO-aligned frameworks that keep enterprise documentation consistent, discoverable, and trusted.
+<div class="hero" markdown>
+![Jafet Rodríguez](assets/jafet.jpg){ .hero-photo }
+<div class="hero-text" markdown>
+<p class="tagline">Hi, I'm Jafet — I turn scattered, ungoverned documentation into a single source of truth.</p>
 
-This portfolio is a companion to my resume. Rather than restate my experience, it shows the **proof** — real, client-grade documents and the methods behind them.
+I design the knowledge base architecture, SOPs, policies, and ISO-aligned frameworks that keep enterprise documentation consistent, discoverable, and trusted. This site is a companion to my resume: instead of restating my experience, it shows the proof.
+
+[Download my résumé](assets/Jafet-Rodriguez-Resume.pdf){ .md-button .md-button--primary }
+</div>
+</div>
 
 ## Start here
 
@@ -33,6 +40,13 @@ This portfolio is a companion to my resume. Rather than restate my experience, i
     [Case Study →](case-study.md)
 
 </div>
+
+## Get in touch
+
+If something here resonates, I'd be glad to talk.
+
+- **Email:** [jafetrodriguez51@gmail.com](mailto:jafetrodriguez51@gmail.com)
+- **LinkedIn:** [linkedin.com/in/jafet-cadalzo](https://www.linkedin.com/in/jafet-cadalzo-a2a6b721b/)
 
 ---
 
