@@ -1,0 +1,28 @@
+/* Home hero: photo + intro side by side */
+.hero {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1.5rem 0;
+}
+.hero-photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+.hero-text { flex: 1; min-width: 280px; }
+.hero-text .tagline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.5rem 0;
+}
+.hero-text p { margin: 0.35rem 0; }
+
+@media screen and (max-width: 520px) {
+  .hero { justify-content: center; text-align: center; }
+}
