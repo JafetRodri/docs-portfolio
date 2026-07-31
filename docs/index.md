@@ -1,13 +1,17 @@
 # Documentation & Process Governance
 
 <div class="hero" markdown>
-![Jafet Rodríguez](assets/jafet.jpg){ .hero-photo }
+![Jafet Rodríguez](jafet.jpg){ .hero-photo }
 <div class="hero-text" markdown>
 <p class="tagline">Hi, I'm Jafet — I turn scattered, ungoverned documentation into a single source of truth.</p>
 
 I design the knowledge base architecture, SOPs, policies, and ISO-aligned frameworks that keep enterprise documentation consistent, discoverable, and trusted. This site is a companion to my resume: instead of restating my experience, it shows the proof.
 
-[Download my résumé](assets/Jafet-Rodriguez-Resume.pdf){ .md-button .md-button--primary }
+<div class="hero-buttons" markdown>
+[:material-download: &nbsp; Download my résumé](Jafet-Rodriguez-Resume.pdf){ .md-button .md-button--primary }
+[:material-email: &nbsp; Email me](mailto:jafetrodriguez51@gmail.com){ .md-button }
+[:fontawesome-brands-linkedin: &nbsp; LinkedIn](https://www.linkedin.com/in/jafet-cadalzo-a2a6b721b/){ .md-button }
+</div>
 </div>
 </div>
 
@@ -40,13 +44,6 @@ I design the knowledge base architecture, SOPs, policies, and ISO-aligned framew
     [Case Study →](case-study.md)
 
 </div>
-
-## Get in touch
-
-If something here resonates, I'd be glad to talk.
-
-- **Email:** [jafetrodriguez51@gmail.com](mailto:jafetrodriguez51@gmail.com)
-- **LinkedIn:** [linkedin.com/in/jafet-cadalzo](https://www.linkedin.com/in/jafet-cadalzo-a2a6b721b/)
 
 ---
 
