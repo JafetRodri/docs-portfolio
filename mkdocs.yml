@@ -21,6 +21,18 @@ nav:
 extra_javascript:
   - javascripts/resize-embeds.js
 
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jafet-cadalzo-a2a6b721b/
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:jafetrodriguez51@gmail.com
+      name: Email
+
 markdown_extensions:
   - admonition
   - attr_list
