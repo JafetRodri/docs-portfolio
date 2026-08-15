@@ -3,7 +3,7 @@
 <div class="hero" markdown>
 ![Jafet Rodríguez](jafet.jpg){ .hero-photo }
 <div class="hero-text" markdown>
-<p class="tagline">Hi, I'm Jafet — I turn scattered, ungoverned documentation into a single source of truth.</p>
+<p class="tagline">Hi, I'm Jafet.</p>
 
 I design the knowledge base architecture, SOPs, policies, and ISO-aligned frameworks that keep enterprise documentation consistent, discoverable, and trusted. This site is a companion to my resume: instead of restating my experience, it shows the proof.
 
