@@ -15,7 +15,9 @@ theme:
 nav:
   - Home: index.md
   - How I Work: how-i-work.md
-  - Document Showcase: document-showcase.md
+  - Document Showcase:
+      - Knowledge Base Documents: document-showcase.md
+      - Developer Documentation: developer-docs.md
   - Case Study: case-study.md
 
 extra_javascript:
